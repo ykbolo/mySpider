@@ -24,7 +24,7 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 ROBOTSTXT_OBEY = False
 
 #
-LOG_LEVEL = "WARN"
+# LOG_LEVEL = "WARN"
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32  # 并发量
@@ -70,9 +70,9 @@ DOWNLOAD_DELAY = 3  # 下载延迟 3s
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'mySpider.pipelines.MyspiderPipeline': 300,
-# }
+ITEM_PIPELINES = {
+    'mySpider.pipelines.MyspiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

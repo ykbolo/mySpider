@@ -8,7 +8,9 @@
 import scrapy
 
 
-class MyspiderItem(scrapy.Item):
+class sudaNewsItem(scrapy.Item):
     # define the fields for your item here like:
-    name = scrapy.Field()
-    pass
+    newsTime = scrapy.Field()
+    newsHref = scrapy.Field()
+    newsTitle = scrapy.Field()
+    newsDepartMent = scrapy.Field()
