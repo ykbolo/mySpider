@@ -14,3 +14,8 @@ class sudaNewsItem(scrapy.Item):
     newsHref = scrapy.Field()
     newsTitle = scrapy.Field()
     newsDepartMent = scrapy.Field()
+
+
+class sudaMainItem(scrapy.Item):
+    father = scrapy.Field()
+    url = scrapy.Field()
