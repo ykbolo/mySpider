@@ -6,6 +6,8 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 import json
 import pymysql
+from warnings import filterwarnings
+filterwarnings("error", category=pymysql.Warning)
 
 
 class MyspiderPipeline(object):
@@ -28,9 +30,14 @@ class MyspiderPipeline2(object):
         self.cursor = self.db.cursor()
 
     def process_item(self, item, spider):
-        sql = "INSERT INTO spiderurls(url,father) VALUE ('%s','%s')" % (
+
+        sql = "INSERT IGNORE INTO urllist(url,father) VALUE ('%s','%s')" % (
             item['url'], item['father'])
-        self.cursor.execute(sql)
+        try:
+            self.cursor.execute(sql)
+        except pymysql.Warning as e:
+            print(e)
+        return item
 
     def close_spider(self, spider):
         self.db.commit()
