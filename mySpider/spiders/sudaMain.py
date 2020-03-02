@@ -29,5 +29,3 @@ class SudamainSpider(scrapy.Spider):
             next_url = self.basic_url+next_url2[0]
             print(self.basic_url+next_url2[0])
             yield scrapy.Request(next_url, self.parse2)
-
-    def parse(self, response):
