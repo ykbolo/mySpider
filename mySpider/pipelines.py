@@ -35,9 +35,10 @@ class MyspiderPipeline2(object):
             item['url'], item['father'])
         try:
             self.cursor.execute(sql)
+            return item
         except pymysql.Warning as e:
-            print(e)
-        return item
+            return item
+        # return item
 
     def close_spider(self, spider):
         self.db.commit()

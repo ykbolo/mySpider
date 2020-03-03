@@ -25,6 +25,13 @@ ROBOTSTXT_OBEY = False
 
 #
 LOG_LEVEL = "WARN"
+DEPTH_LIMIT = 1
+
+
+# 先进先出，广度优先
+DEPTH_PRIORITY = 1
+SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue'
+SCHEDULER_MEMORY_QUEUE = 'scrapy.squeues.FifoMemoryQueue'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32  # 并发量
