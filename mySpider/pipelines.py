@@ -12,7 +12,7 @@ filterwarnings("error", category=pymysql.Warning)
 
 class MyspiderPipeline(object):
     def __init__(self):
-        self.f = open("sudaNews.json", 'w', encoding='utf-8')
+        self.f = open("sudaNews2.json", 'w', encoding='utf-8')
 
     def process_item(self, item, spider):
         content = json.dumps(dict(item), ensure_ascii=False)+',\n'
@@ -26,7 +26,7 @@ class MyspiderPipeline(object):
 class MyspiderPipeline2(object):
     def __init__(self):
         self.db = pymysql.connect(
-            "localhost", "root", "yk84732225", "spiderurl")
+            "localhost", "root", "password", "spiderurl")
         self.cursor = self.db.cursor()
 
     def process_item(self, item, spider):

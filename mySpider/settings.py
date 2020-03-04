@@ -25,7 +25,7 @@ ROBOTSTXT_OBEY = False
 
 #
 LOG_LEVEL = "WARN"
-DEPTH_LIMIT = 1
+DEPTH_LIMIT = 10
 
 
 # 先进先出，广度优先
