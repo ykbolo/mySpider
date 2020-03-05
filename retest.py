@@ -121,6 +121,13 @@ re1 = r'^(http|https)://([\w.]+[^#]/?)\S*'
 re2 = r'^/([\w.]+/?)\S*'
 # 匹配缺少/的url
 re3 = r'^[^/]([\w.]?/?)\S*'
+# 匹配suda的页面
+re4 = r'.+suda\.edu\.cn.+'
+
+# 匹配ip地址
+re5 = r'.*((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?).*'
+# 过滤掉可能报错的
+re6 = r".*[@|'|,].*"
 
 
 def test1(str):
@@ -138,6 +145,21 @@ def test3(str):
     print(re.match(re3, str, re.M | re.I))
 
 
+def test4(str):
+    print(str)
+    print(re.match(re4, str, re.M | re.I))
+
+
+def test5(str):
+    print(str)
+    print(re.match(re5, str, re.M | re.I))
+
+
+def test6(str):
+    print(str)
+    print(re.match(re6, str, re.M | re.I))
+
+
 test1('http://www.suda.edu.cn/newsdb/2020%E5%B9%B4%E5%AF%92%E5%81%87%E5%80%BC%E7%8F%AD%E8%A1%A8/index.htm')
 
 test1('http://ezreal-yk.cn')
@@ -147,3 +169,16 @@ test2('/suda_news/ehb/index.html')
 test3('/suda_news/ehb/index.html')
 test3('suda_news/ehb/index.html')
 test3('#')
+
+
+test4('/home/tpxw/2020/index.html')
+
+test4('http://www.suda.edu.cn/suda_news/sdyw/202001/0c83e7ca-e80f-4409-93a2-16acbfa5c33c.html')
+
+test5('192.168.0.1')
+test5('https://192.168.0.1/ewqewq')
+test6("ewqe@eqwe")
+test6("ewqe.eqwe")
+test6("ewqe.eqweer'e'")
+test6('https://192.168.0.1/ewqewq')
+test6("https://192.168.0.1/ewq@'e',wq")

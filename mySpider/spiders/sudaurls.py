@@ -7,8 +7,8 @@ import pymysql
 
 class SudaurlsSpider(scrapy.Spider):
     name = 'sudaurls'
-    allowed_domains = ['www.suda.edu.cn', 'aff.suda.edu.cn', 'eng.suda.edu.cn', 'file.suda.edu.cn/',
-                       'library.suda.edu.cn/', 'mail.suda.edu.cn', 'csteaching.suda.edu.cn']
+    # allowed_domains = ['www.suda.edu.cn', 'aff.suda.edu.cn', 'eng.suda.edu.cn', 'file.suda.edu.cn/',
+    #                    'library.suda.edu.cn/', 'mail.suda.edu.cn', 'csteaching.suda.edu.cn']
     start_urls = ['http://www.suda.edu.cn']
     basic_url = 'http://www.suda.edu.cn'
     table_count = 0
@@ -48,18 +48,18 @@ class SudaurlsSpider(scrapy.Spider):
                 item['father'] = basic_url
                 item['url'] = true_url
                 yield item
-        url_list = self.getDistinctUrls()
-        print(url_list)
-        for next_url in url_list:
-            if 'http://' in next_url or 'https://' in next_url:
-                yield scrapy.Request(next_url, self.parse, dont_filter=True)
-            else:
-                yield scrapy.Request('http://'+next_url, self.parse, dont_filter=True)
+        # url_list = self.getDistinctUrls()
+        # print(url_list)
+        # for next_url in url_list:
+        #     if 'http://' in next_url or 'https://' in next_url:
+        #         yield scrapy.Request(next_url, self.parse, dont_filter=True)
+        #     else:
+        #         yield scrapy.Request('http://'+next_url, self.parse, dont_filter=True)
 
     def getDistinctUrls(self):
         url_list = []
         self.db = pymysql.connect(
-            "localhost", "root", "password", "spiderurl")
+            "localhost", "root", "yk84732225", "spiderurl")
         self.cursor = self.db.cursor()
         sql = "SELECT DISTINCT url FROM urllist"
         self.cursor.execute(sql)
@@ -68,3 +68,17 @@ class SudaurlsSpider(scrapy.Spider):
         for data in alldata:
             url_list.append(data[0])
         return url_list
+
+    def judge_suda(self, url):
+        flag = True
+        re_suda = r'.*suda\.edu\.cn.*'
+        re_ip = r'.*((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?).*'
+        re_unformat = r".*[@|'|,].*"
+        if re.match(re_suda, url, re.I | re.M) or re.match(re_ip, url, re.I | re.M):
+            if re.match(re_unformat, url, re.I | re.M) == None:
+                flag = True
+            else:
+                flag = False
+        else:
+            flag = False
+        return flag
