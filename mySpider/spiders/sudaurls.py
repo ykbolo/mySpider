@@ -7,15 +7,14 @@ import pymysql
 
 class SudaurlsSpider(scrapy.Spider):
     name = 'sudaurls'
-    # allowed_domains = ['www.suda.edu.cn', 'aff.suda.edu.cn', 'eng.suda.edu.cn', 'file.suda.edu.cn/',
-    #                    'library.suda.edu.cn/', 'mail.suda.edu.cn', 'csteaching.suda.edu.cn']
+    allowed_domains = ['www.suda.edu.cn', 'aff.suda.edu.cn', 'eng.suda.edu.cn', 'file.suda.edu.cn',
+                       'library.suda.edu.cn', 'mail.suda.edu.cn', 'csteaching.suda.edu.cn']
     start_urls = ['http://www.suda.edu.cn']
     basic_url = 'http://www.suda.edu.cn'
     table_count = 0
-    count = 0
 
     def parse(self, response):
-        self.count = self.count+1
+        # self.count = self.count+1
         #print('这是第', self.count, '个页面')
         # print('当前爬取页面'+response.request.url.strip('*/'))
         titles = response.xpath('//a/@href').extract()
@@ -25,7 +24,7 @@ class SudaurlsSpider(scrapy.Spider):
         url_list = []
         # 对于url进行拼接处理
         for url in titles:
-            print(url)
+            # print(url)
             item = sudaMainItem()
             matchFullUrl = re.match(
                 r'^(http|https)://([\w.]+/?)\S*', url, re.M | re.I)
@@ -35,16 +34,16 @@ class SudaurlsSpider(scrapy.Spider):
             if url:
                 if matchFullUrl:
                     true_url = url
-                    print('原始url', true_url)
+                    # print('原始url', true_url)
                 elif matchRelateUrl:
                     true_url = basic_url+url
-                    print('拼接url1', true_url)
+                    # print('拼接url1', true_url)
                 elif matchRelateUrl2:
                     true_url = basic_url+'/'+url
-                    print('拼接url2', true_url)
+                    # print('拼接url2', true_url)
                 else:
                     true_url = url
-                    print('未处理且未匹配', true_url)
+                    # print('未处理且未匹配', true_url)
                 item['father'] = basic_url
                 item['url'] = true_url
                 yield item

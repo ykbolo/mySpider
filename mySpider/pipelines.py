@@ -57,7 +57,7 @@ class MyspiderPipeline2(object):
                 self.cursor.execute(sql)
                 self.db.commit()
             except pymysql.Warning as e:
-                print(pymysql.Warning)
+                print(e)
         return item
 
     def close_spider(self, spider):
@@ -76,5 +76,5 @@ class MyspiderPipeline2(object):
                 flag = False
         else:
             flag = False
-        print(url, ':', '满足入库要求' if(flag) else '不满足要求')
+        # print(url, ':', '满足入库要求' if(flag) else '不满足要求')
         return flag
