@@ -19,3 +19,4 @@ class sudaNewsItem(scrapy.Item):
 class sudaMainItem(scrapy.Item):
     father = scrapy.Field()
     url = scrapy.Field()
+    # distinct_url = scrapy.Field()

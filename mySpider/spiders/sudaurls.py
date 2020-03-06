@@ -3,25 +3,27 @@ import scrapy
 import re
 from mySpider.items import sudaMainItem
 import pymysql
+import copy
 
 
 class SudaurlsSpider(scrapy.Spider):
     name = 'sudaurls'
-    allowed_domains = ['www.suda.edu.cn', 'aff.suda.edu.cn', 'eng.suda.edu.cn', 'file.suda.edu.cn',
-                       'library.suda.edu.cn', 'mail.suda.edu.cn', 'csteaching.suda.edu.cn']
+    # allowed_domains = ['www.suda.edu.cn', 'aff.suda.edu.cn', 'eng.suda.edu.cn', 'file.suda.edu.cn',
+    #                    'library.suda.edu.cn', 'mail.suda.edu.cn', 'csteaching.suda.edu.cn']
     start_urls = ['http://www.suda.edu.cn']
     basic_url = 'http://www.suda.edu.cn'
     table_count = 0
+    url_pool = set()
 
     def parse(self, response):
         # self.count = self.count+1
         #print('这是第', self.count, '个页面')
-        # print('当前爬取页面'+response.request.url.strip('*/'))
+        print('当前爬取页面'+response.request.url.strip('*/'))
+        print('当前集合大小', len(self.url_pool))
         titles = response.xpath('//a/@href').extract()
 
         basic_url = response.request.url.strip('*/')
 
-        url_list = []
         # 对于url进行拼接处理
         for url in titles:
             # print(url)
@@ -44,16 +46,28 @@ class SudaurlsSpider(scrapy.Spider):
                 else:
                     true_url = url
                     # print('未处理且未匹配', true_url)
-                item['father'] = basic_url
-                item['url'] = true_url
-                yield item
+                if self.judge_suda(true_url):
+                    item['father'] = basic_url
+                    item['url'] = true_url
+                    self.url_pool.add(true_url)
+                    yield item
+                # if true_url not in self.url_pool:
+                #     item['distinct_url'] = true_url
+
+                # else:
+                #     item['distinct_url'] = 'duplicate'
+                # yield item
         # url_list = self.getDistinctUrls()
         # print(url_list)
-        # for next_url in url_list:
-        #     if 'http://' in next_url or 'https://' in next_url:
-        #         yield scrapy.Request(next_url, self.parse, dont_filter=True)
-        #     else:
-        #         yield scrapy.Request('http://'+next_url, self.parse, dont_filter=True)
+        url_pool_copy = copy.deepcopy(self.url_pool)
+        # url_pool_copy = list(self.url_pool)
+
+        for next_url in url_pool_copy:
+            # print('这是第', index, '个元素')
+            if 'http://' in next_url or 'https://' in next_url:
+                yield scrapy.Request(next_url, self.parse, dont_filter=False)
+            else:
+                yield scrapy.Request('http://'+next_url, self.parse, dont_filter=False)
 
     def getDistinctUrls(self):
         url_list = []

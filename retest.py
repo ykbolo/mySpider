@@ -114,6 +114,7 @@
 # /suda_news/ehb/202002/08ae6ea4-6b13-44d9-a3f1-942450625d67.html
 # http://www.suda.edu.cn/newsdb/2020%E5%B9%B4%E5%AF%92%E5%81%87%E5%80%BC%E7%8F%AD%E8%A1%A8/index.htm
 # /scene.do
+import sys
 import re
 # 匹配标准url的正则表达式
 re1 = r'^(http|https)://([\w.]+[^#]/?)\S*'
@@ -182,3 +183,30 @@ test6("ewqe.eqwe")
 test6("ewqe.eqweer'e'")
 test6('https://192.168.0.1/ewqewq')
 test6("https://192.168.0.1/ewq@'e',wq")
+
+
+mmm = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+kkk = list(mmm)
+print()
+mmm.add(11)
+kkk = list(mmm)
+print(kkk)
+for idx, m in enumerate(kkk):
+    print(idx, ':', m)
+
+
+class Logger(object):
+    def __init__(self, filename='default.log', stream=sys.stdout):
+        self.terminal = stream
+        self.log = open(filename, 'w')
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        pass
+
+
+sys.stdout = Logger('a.log', sys.stdout)
+sys.stderr = Logger('a.log_file', sys.stderr)

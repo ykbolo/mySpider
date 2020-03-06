@@ -57,7 +57,7 @@ class MyspiderPipeline2(object):
                 self.cursor.execute(sql)
                 self.db.commit()
             except pymysql.Warning as e:
-                print(e)
+                pass
         return item
 
     def close_spider(self, spider):
