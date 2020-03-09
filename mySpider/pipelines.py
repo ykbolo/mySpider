@@ -78,3 +78,16 @@ class MyspiderPipeline2(object):
             flag = False
         # print(url, ':', '满足入库要求' if(flag) else '不满足要求')
         return flag
+
+
+class MyspiderPipeline3(object):
+    def __init__(self):
+        self.f = open("sudaNewsTitleAll.json", 'w', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        content = json.dumps(dict(item), ensure_ascii=False)+',\n'
+        self.f.write(content)
+        return item
+
+    def close_spider(self, spider):
+        self.f.close()

@@ -5,9 +5,10 @@ from mySpider.items import sudaMainItem
 import pymysql
 import copy
 from urllib.request import urlparse
+from urllib.parse import urljoin
 
 
-class SudamainSpider(scrapy.Spider):
+class SudaMainSpider(scrapy.Spider):
     name = 'sudaMain'
     allowed_domains = ['www.suda.edu.cn']
     start_urls = ['http://www.suda.edu.cn/']
@@ -31,26 +32,18 @@ class SudamainSpider(scrapy.Spider):
             item = sudaMainItem()
             matchFullUrl = re.match(
                 r'^(http|https)://([\w.]+/?)\S*', url, re.M | re.I)
-            matchRelateUrl = re.match(r'^/([\w.]?/?)\S*', url, re.M | re.I)
-            matchRelateUrl2 = re.match(r'^[^/]([\w.]?/?)\S*', url, re.M | re.I)
+            # matchRelateUrl = re.match(r'^/([\w.]?/?)\S*', url, re.M | re.I)
+            # matchRelateUrl2 = re.match(r'^[^/]([\w.]?/?)\S*', url, re.M | re.I)
             matchUselessUrl = re.match(r'^#([\w.]?/?)\S*', url, re.M | re.I)
-            matchParams = re.match(r'^\?([\w.]?/?)\S*', url, re.M | re.I)
+            # matchParams = re.match(r'^\?([\w.]?/?)\S*', url, re.M | re.I)
             if url:
                 if matchFullUrl:
                     true_url = url
                     # print('原始url', true_url)
-                elif matchRelateUrl:
-                    root_url = urlparse(url).scheme+'://'+urlparse(url).netloc
-                    true_url = root_url+url
-                    # print('拼接url1', true_url)
-                elif matchRelateUrl2:
-                    true_url = basic_url+'/'+url
-                    # print('拼接url2', true_url)
-                elif matchParams:
-                    true_url = urlparse(
-                        basic_url).scheme+'://'+urlparse(basic_url).netloc+urlparse(basic_url).path
                 elif matchUselessUrl:
-                    true_url = url
+                    true_url = basic_url
+                else:
+                    true_url = urljoin(basic_url, url)
                     # print('未处理且未匹配', true_url)
                 if self.judge_suda(true_url):
                     item['father'] = basic_url
