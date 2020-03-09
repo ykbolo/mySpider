@@ -81,7 +81,7 @@ COOKIES_ENABLED = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'mySpider.pipelines.MyspiderPipeline': 300,
-    'mySpider.pipelines.MyspiderPipeline2': 300,
+    # 'mySpider.pipelines.MyspiderPipeline2': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
