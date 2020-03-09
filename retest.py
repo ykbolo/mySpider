@@ -116,6 +116,22 @@
 # /scene.do
 import sys
 import re
+from tld import get_tld
+urls = ["http://meiwen.me/src/index.html",
+        "http://1000chi.com/game/index.html",
+        "http://see.xidian.edu.cn/cpp/html/1429.html",
+        "https://docs.python.org/2/howto/regex.html",
+        "https://www.google.com.hk/search?client=aff-cs-360chromium&hs=TSj&q=url%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8Dre&oq=url%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8Dre&gs_l=serp.3...74418.86867.0.87673.28.25.2.0.0.0.541.2454.2-6j0j1j1.8.0....0...1c.1j4.53.serp..26.2.547.IuHTj4uoyHg",
+        "file:///D:/code/echarts-2.0.3/doc/example/tooltip.html",
+        "http://api.mongodb.org/python/current/faq.html#is-pymongo-thread-safe",
+        "https://pypi.python.org/pypi/publicsuffix/",
+        "http://127.0.0.1:8000"
+        ]
+for url in urls:
+    try:
+        print(get_tld(url))
+    except Exception as e:
+        print("unkonw")
 # 匹配标准url的正则表达式
 re1 = r'^(http|https)://([\w.]+[^#]/?)\S*'
 # 匹配相对路径的url
@@ -128,7 +144,10 @@ re4 = r'.+suda\.edu\.cn.+'
 # 匹配ip地址
 re5 = r'.*((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?).*'
 # 过滤掉可能报错的
-re6 = r".*[@|'|,].*"
+re6 = r".*[@|'|,xlzx].*"
+
+re7 = r'^#([\w.]?/?)\S*'
+re8 = r'^\?([\w.]?/?)\S*'
 
 
 def test1(str):
@@ -161,6 +180,16 @@ def test6(str):
     print(re.match(re6, str, re.M | re.I))
 
 
+def test7(str):
+    print(str)
+    print(re.match(re7, str, re.M | re.I))
+
+
+def test8(str):
+    print(str)
+    print(re.match(re8, str, re.M | re.I))
+
+
 test1('http://www.suda.edu.cn/newsdb/2020%E5%B9%B4%E5%AF%92%E5%81%87%E5%80%BC%E7%8F%AD%E8%A1%A8/index.htm')
 
 test1('http://ezreal-yk.cn')
@@ -183,8 +212,8 @@ test6("ewqe.eqwe")
 test6("ewqe.eqweer'e'")
 test6('https://192.168.0.1/ewqewq')
 test6("https://192.168.0.1/ewq@'e',wq")
-
-
+test7('#eweqweqw')
+test8('?ud=0#ee')
 mmm = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 kkk = list(mmm)
 print()

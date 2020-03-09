@@ -6,19 +6,13 @@ import pymysql
 import copy
 from urllib.request import urlparse
 from urllib.parse import urljoin
-url = "http://eng.suda.edu.cn/suda_news/sdyw/202002/0c620fb0-aad7-4168-a3a4-a7c07442df98.html"
-# 域名
-domain = urlparse(url).netloc
-# 协议
-scheme = urlparse(url).scheme+'://'
-print(scheme+domain)
 
 
-class SudaurlsSpider(scrapy.Spider):
-    name = 'sudaurls'
-    # allowed_domains = ['www.suda.edu.cn', 'aff.suda.edu.cn', 'eng.suda.edu.cn', 'file.suda.edu.cn',
-    #                    'library.suda.edu.cn', 'mail.suda.edu.cn', 'csteaching.suda.edu.cn']
-    start_urls = ['http://www.suda.edu.cn']
+class UrljoinSpider(scrapy.Spider):
+    name = 'sudaMain'
+    allowed_domains = ['www.suda.edu.cn']
+    start_urls = ['http://www.suda.edu.cn/']
+    basic_url_init = 'http://www.suda.edu.cn'
     basic_url = 'http://www.suda.edu.cn'
     table_count = 0
     url_pool = set()
@@ -38,21 +32,18 @@ class SudaurlsSpider(scrapy.Spider):
             item = sudaMainItem()
             matchFullUrl = re.match(
                 r'^(http|https)://([\w.]+/?)\S*', url, re.M | re.I)
-            matchRelateUrl = re.match(r'^/([\w.]?/?)\S*', url, re.M | re.I)
-            matchRelateUrl2 = re.match(r'^[^/]([\w.]?/?)\S*', url, re.M | re.I)
-
+            # matchRelateUrl = re.match(r'^/([\w.]?/?)\S*', url, re.M | re.I)
+            # matchRelateUrl2 = re.match(r'^[^/]([\w.]?/?)\S*', url, re.M | re.I)
+            matchUselessUrl = re.match(r'^#([\w.]?/?)\S*', url, re.M | re.I)
+            # matchParams = re.match(r'^\?([\w.]?/?)\S*', url, re.M | re.I)
             if url:
                 if matchFullUrl:
                     true_url = url
                     # print('原始url', true_url)
-                elif matchRelateUrl:
-                    true_url = basic_url+url
-                    # print('拼接url1', true_url)
-                elif matchRelateUrl2:
-                    true_url = basic_url+'/'+url
-                    # print('拼接url2', true_url)
-                else:
+                elif matchUselessUrl:
                     true_url = url
+                else:
+                    true_url = urljoin(basic_url, url)
                     # print('未处理且未匹配', true_url)
                 if self.judge_suda(true_url):
                     item['father'] = basic_url
@@ -80,7 +71,7 @@ class SudaurlsSpider(scrapy.Spider):
     def getDistinctUrls(self):
         url_list = []
         self.db = pymysql.connect(
-            "localhost", "root", "yk84732225", "spiderurl")
+            "localhost", "root", "password", "spiderurl")
         self.cursor = self.db.cursor()
         sql = "SELECT DISTINCT url FROM urllist"
         self.cursor.execute(sql)
