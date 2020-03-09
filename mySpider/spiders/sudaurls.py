@@ -80,7 +80,7 @@ class SudaurlsSpider(scrapy.Spider):
     def getDistinctUrls(self):
         url_list = []
         self.db = pymysql.connect(
-            "localhost", "root", "yk84732225", "spiderurl")
+            "localhost", "root", "password", "spiderurl")
         self.cursor = self.db.cursor()
         sql = "SELECT DISTINCT url FROM urllist"
         self.cursor.execute(sql)
