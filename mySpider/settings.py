@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'mySpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36'
+USER_AGENT = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -26,8 +26,10 @@ ROBOTSTXT_OBEY = False
 #
 LOG_LEVEL = "WARN"
 # DEPTH_LIMIT = 10
-
-
+# 设置下载超时
+DOWNLOAD_TIMEOUT = 10
+# 禁止重试
+RETRY_ENABLED = False
 # 先进先出，广度优先
 # DEPTH_PRIORITY = 1
 # SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue'
@@ -39,13 +41,13 @@ CONCURRENT_REQUESTS = 32  # 并发量
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3  # 下载延迟 3s
+DOWNLOAD_DELAY = 2  # 下载延迟 3s
 # The download delay setting will honor only one of:
-#CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 16
+CONCURRENT_REQUESTS_PER_DOMAIN = 50
+CONCURRENT_REQUESTS_PER_IP =50
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False

@@ -1,7 +1,7 @@
 import json
 import pymysql
 db = pymysql.connect(
-    "localhost", "root", "yk84732225", "spiderurl")
+    "localhost", "root", "password", "spiderurl")
 cursor = db.cursor()
 
 

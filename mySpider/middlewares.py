@@ -6,7 +6,9 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+import random
+# 第三方框架，可以产生各种headers
+from fake_useragent import UserAgent
 
 class MyspiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -101,3 +103,41 @@ class MyspiderDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+
+ 
+# 添加消息头
+class RandomUserAgent(object):
+    def __init__(self):
+        super(RandomUserAgent,self).__init__()
+        #实例化方法
+        self.ua=UserAgent()
+    def process_request(self,request, spider):
+        #这里的header是由框架产生的，也可以自己写
+        random_type=self.ua.chrome
+        request.headers.setdefault("User-Agent",random_type)
+class ProxyMiddlleWare(object):
+    def __init__(self):
+        super(ProxyMiddlleWare,self).__init__()
+    def process_request(self,request,spider):
+        # 得到地址
+        proxy=self.get_Random_Proxy()
+        print(proxy+"**********")
+        # 设置代理
+        request.meta['proxy']="http://"+proxy
+    #这个方法是从文档中读取id地址
+    def get_Random_Proxy(self):
+        with open(r"C:\Users\python\ok_ip.txt",'r') as file:
+            text=file.readlines()
+        proxy = random.choice(text).strip()
+        return proxy
+    def process_response(self,request,response,spider):
+        #如果该ip不能使用，更换下一个ip
+        if response.status!=200:
+            proxy = self.get_Random_Proxy()
+            print('更换ip'+proxy)
+            request.meta['proxy'] = "http://" + proxy
+            return request
+        return response
+
