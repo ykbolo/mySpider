@@ -80,7 +80,7 @@ COOKIES_ENABLED = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'mySpider.pipelines.MyspiderPipeline': 300,
+    # 'mySpider.pipelines.MyspiderPipeline': 300,
     # 'mySpider.pipelines.MyspiderPipeline2': 300,
 }
 

@@ -82,7 +82,7 @@ class MyspiderPipeline2(object):
 
 class MyspiderPipeline3(object):
     def __init__(self):
-        self.f = open("sudaNewsTitleAll.json", 'w', encoding='utf-8')
+        self.f = open("sudaAUrls.json", 'a', encoding='utf-8')
 
     def process_item(self, item, spider):
         content = json.dumps(dict(item), ensure_ascii=False)+',\n'
