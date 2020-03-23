@@ -20,3 +20,14 @@ class sudaMainItem(scrapy.Item):
     father = scrapy.Field()
     url = scrapy.Field()
     # distinct_url = scrapy.Field()
+
+class sudaNewstxtItem(scrapy.Item):
+    content = scrapy.Field
+
+class txt2jsonItem(scrapy.Item):
+    url = scrapy.Field()
+    title = scrapy.Field()
+    description = scrapy.Field()
+    keywords = scrapy.Field()
+    imgs = scrapy.Field()
+    body = scrapy.Field()
