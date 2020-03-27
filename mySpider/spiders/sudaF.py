@@ -9,136 +9,200 @@ from urllib.parse import urljoin
 
 
 class SudaMainSpider(scrapy.Spider):
-    name = 'sudaA'
-    allowed_domains = ['ac.suda.edu.cn',
-'aff.suda.edu.cn',
-'alumni.suda.edu.cn',
-'arch.suda.edu.cn',
-'archives.suda.edu.cn',
-'audit.suda.edu.cn',
-'bjwx.suda.edu.cn',
+    name = 'sudaF'
+    allowed_domains = ["file.suda.edu.cn",
  
-'bsh.suda.edu.cn',
+"fineng.suda.edu.cn",
  
-'bwc.suda.edu.cn',
+"forensic.suda.edu.cn",
  
-'bwcx.suda.edu.cn',
+"funsom.suda.edu.cn",
  
-'card.suda.edu.cn',
+"fxcs.suda.edu.cn",
  
-'career.suda.edu.cn',
+"fyxy.suda.edu.cn",
  
-'cgpt.suda.edu.cn',
+"fzb.suda.edu.cn",
  
-'chemistry.suda.edu.cn',
+"garden.suda.edu.cn",
  
-'cicrm.suda.edu.cn',
+"ggw.suda.edu.cn",
  
-'cps.suda.edu.cn',
+"gh.suda.edu.cn",
  
-'ctmi.suda.edu.cn',
+"gkyjs.suda.edu.cn",
  
-'cusg.suda.edu.cn'
- ,
-'cwc.suda.edu.cn',
+"gwxy.suda.edu.cn",
  
-'cxcyzx.suda.edu.cn',
+"gysk.suda.edu.cn",
  
-'dangxiao.suda.edu.cn'
- ,
-'db.suda.edu.cn',
+"gzc.suda.edu.cn",
  
-'ddh.suda.edu.cn',
+"hlxy.suda.edu.cn",
  
-'disciplinfo.suda.edu.cn',
+"hospital-admin.suda.edu.cn",
  
-'dsj.suda.edu.cn',
+"hqglc.suda.edu.cn",
  
-'dwshy.suda.edu.cn',
+"hris.suda.edu.cn",
  
-'dwzx.suda.edu.cn',
+"hysgl.suda.edu.cn",
  
-'dxpx.suda.edu.cn',
+"hzb.suda.edu.cn",
  
-'dxyqgl.suda.edu.cn',
+"iai.suda.edu.cn",
  
-'dxyqglxt.suda.edu.cn',
+"ibms.suda.edu.cn",
  
-'dzxx.suda.edu.cn',
+"ics.suda.edu.cn",
  
-'eeac.suda.edu.cn',
+"international.suda.edu.cn",
  
-'energy.suda.edu.cn',
-
-'eng.suda.edu.cn']
-    start_urls = ['http://ac.suda.edu.cn']
+"its.suda.edu.cn",
+ 
+"jdxy.suda.edu.cn",
+ 
+"jfsx.suda.edu.cn",
+ 
+"jgdgw.suda.edu.cn",
+ 
+"jjs.suda.edu.cn",
+ 
+"jsgzb.suda.edu.cn",
+ 
+"jsyb.suda.edu.cn",
+ 
+"jsyd.suda.edu.cn",
+ 
+"jtxy.suda.edu.cn",
+ 
+"jwb.suda.edu.cn",
+ 
+"jwsy.suda.edu.cn",
+ 
+"jxjy.suda.edu.cn",
+ 
+"jxjylx.suda.edu.cn",
+ 
+"jxjyzs.suda.edu.cn",
+ 
+"jysw.suda.edu.cn",
+ 
+"jyxy.suda.edu.cn",
+ 
+"labcenter.suda.edu.cn",
+ 
+"laowo.suda.edu.cn",
+ 
+"law.suda.edu.cn",
+ 
+"library.suda.edu.cn",
+ 
+"lst.suda.edu.cn",
+ 
+"ltc.suda.edu.cn",
+ 
+"lxyz.suda.edu.cn"]
+    start_urls = ["http://file.suda.edu.cn"]
     # basic_url_init = 'http://www.suda.edu.cn'
     # basic_url = 'http://www.suda.edu.cn'
     # table_count = 0
-    url_pool = set(('http://ac.suda.edu.cn',
-'http://aff.suda.edu.cn',
-'http://alumni.suda.edu.cn',
-'http://arch.suda.edu.cn',
-'http://archives.suda.edu.cn',
-'http://audit.suda.edu.cn',
-'http://bjwx.suda.edu.cn',
+    url_pool = set(("http://file.suda.edu.cn",
  
-'http://bsh.suda.edu.cn',
+"http://fineng.suda.edu.cn",
  
-'http://bwc.suda.edu.cn',
+"http://forensic.suda.edu.cn",
  
-'http://bwcx.suda.edu.cn',
+"http://funsom.suda.edu.cn",
  
-'http://card.suda.edu.cn',
+"http://fxcs.suda.edu.cn",
  
-'http://career.suda.edu.cn',
+"http://fyxy.suda.edu.cn",
  
-'http://cgpt.suda.edu.cn',
+"http://fzb.suda.edu.cn",
  
-'http://chemistry.suda.edu.cn',
+"http://garden.suda.edu.cn",
  
-'http://cicrm.suda.edu.cn',
+"http://ggw.suda.edu.cn",
  
-'http://cps.suda.edu.cn',
+"http://gh.suda.edu.cn",
  
-'http://ctmi.suda.edu.cn',
+"http://gkyjs.suda.edu.cn",
  
-'http://cusg.suda.edu.cn'
- ,
-'http://cwc.suda.edu.cn',
+"http://gwxy.suda.edu.cn",
  
-'http://cxcyzx.suda.edu.cn',
+"http://gysk.suda.edu.cn",
  
-'http://dangxiao.suda.edu.cn'
- ,
-'http://db.suda.edu.cn',
+"http://gzc.suda.edu.cn",
  
-'http://ddh.suda.edu.cn',
+"http://hlxy.suda.edu.cn",
  
-'http://disciplinfo.suda.edu.cn',
+"http://hospital-admin.suda.edu.cn",
  
-'http://dsj.suda.edu.cn',
+"http://hqglc.suda.edu.cn",
  
-'http://dwshy.suda.edu.cn',
+"http://hris.suda.edu.cn",
  
-'http://dwzx.suda.edu.cn',
+"http://hysgl.suda.edu.cn",
  
-'http://dxpx.suda.edu.cn',
+"http://hzb.suda.edu.cn",
  
-'http://dxyqgl.suda.edu.cn',
+"http://iai.suda.edu.cn",
  
-'http://dxyqglxt.suda.edu.cn',
+"http://ibms.suda.edu.cn",
  
-'http://dzxx.suda.edu.cn',
+"http://ics.suda.edu.cn",
  
-'http://eeac.suda.edu.cn',
+"http://international.suda.edu.cn",
  
-'http://energy.suda.edu.cn',
+"http://its.suda.edu.cn",
  
-'http://eng.suda.edu.cn'))
+"http://jdxy.suda.edu.cn",
+ 
+"http://jfsx.suda.edu.cn",
+ 
+"http://jgdgw.suda.edu.cn",
+ 
+"http://jjs.suda.edu.cn",
+ 
+"http://jsgzb.suda.edu.cn",
+ 
+"http://jsyb.suda.edu.cn",
+ 
+"http://jsyd.suda.edu.cn",
+ 
+"http://jtxy.suda.edu.cn",
+ 
+"http://jwb.suda.edu.cn",
+ 
+"http://jwsy.suda.edu.cn",
+ 
+"http://jxjy.suda.edu.cn",
+ 
+"http://jxjylx.suda.edu.cn",
+ 
+"http://jxjyzs.suda.edu.cn",
+ 
+"http://jysw.suda.edu.cn",
+ 
+"http://jyxy.suda.edu.cn",
+ 
+"http://labcenter.suda.edu.cn",
+ 
+"http://laowo.suda.edu.cn",
+ 
+"http://law.suda.edu.cn",
+ 
+"http://library.suda.edu.cn",
+ 
+"http://lst.suda.edu.cn",
+ 
+"http://ltc.suda.edu.cn",
+ 
+"http://lxyz.suda.edu.cn"))
     custom_settings = {'DOWNLOAD_DELAY': 1,  # 下载延迟 3s
                        'ITEM_PIPELINES': {
-                           'mySpider.pipelines.MyspiderPipeline3': 300
+                           'mySpider.pipelines.MyspiderPipeline4': 300
                        }
                        }
     def parse(self, response):

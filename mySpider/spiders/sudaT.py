@@ -9,137 +9,145 @@ from urllib.parse import urljoin
 
 
 class SudaMainSpider(scrapy.Spider):
-    name = 'sudaA'
-    allowed_domains = ['ac.suda.edu.cn',
-'aff.suda.edu.cn',
-'alumni.suda.edu.cn',
-'arch.suda.edu.cn',
-'archives.suda.edu.cn',
-'audit.suda.edu.cn',
-'bjwx.suda.edu.cn',
+    name = 'sudaT'
+    allowed_domains = ["tec.suda.edu.cn",
  
-'bsh.suda.edu.cn',
+"textile.suda.edu.cn",
  
-'bwc.suda.edu.cn',
+"tjxh.suda.edu.cn",
  
-'bwcx.suda.edu.cn',
+"twzsy.suda.edu.cn",
  
-'card.suda.edu.cn',
+"tyxy.suda.edu.cn",
  
-'career.suda.edu.cn',
+"tzb.suda.edu.cn",
  
-'cgpt.suda.edu.cn',
+"uninews.suda.edu.cn",
  
-'chemistry.suda.edu.cn',
+"welcome.suda.edu.cn",
  
-'cicrm.suda.edu.cn',
+"wg.suda.edu.cn",
  
-'cps.suda.edu.cn',
  
-'ctmi.suda.edu.cn',
+"wx.suda.edu.cn",
  
-'cusg.suda.edu.cn'
- ,
-'cwc.suda.edu.cn',
+"wxy.suda.edu.cn",
  
-'cxcyzx.suda.edu.cn',
+"xb.suda.edu.cn",
  
-'dangxiao.suda.edu.cn'
- ,
-'db.suda.edu.cn',
+"xcb.suda.edu.cn",
  
-'ddh.suda.edu.cn',
+"xdgx.suda.edu.cn",
  
-'disciplinfo.suda.edu.cn',
+"xiaoqing.suda.edu.cn",
  
-'dsj.suda.edu.cn',
+"xjj.suda.edu.cn",
  
-'dwshy.suda.edu.cn',
+"xk.suda.edu.cn",
  
-'dwzx.suda.edu.cn',
+"xlzx.suda.edu.cn",
  
-'dxpx.suda.edu.cn',
+"xsc.suda.edu.cn",
  
-'dxyqgl.suda.edu.cn',
+"xsh.suda.edu.cn",
  
-'dxyqglxt.suda.edu.cn',
+"yanhui.suda.edu.cn",
  
-'dzxx.suda.edu.cn',
+"yjs.suda.edu.cn",
  
-'eeac.suda.edu.cn',
+"youth.suda.edu.cn",
  
-'energy.suda.edu.cn',
-
-'eng.suda.edu.cn']
-    start_urls = ['http://ac.suda.edu.cn']
+"ysxy.suda.edu.cn",
+ 
+"yxbfzb.suda.edu.cn",
+ 
+"zbzx.suda.edu.cn",
+ 
+"zcpt.gzc.suda.edu.cn",
+ 
+"zjc.suda.edu.cn",
+ 
+"zqsy.suda.edu.cn",
+ 
+"zsb.suda.edu.cn",
+ 
+"zzb.suda.edu.cn",
+ 
+]
+    start_urls = ["http://tec.suda.edu.cn",]
     # basic_url_init = 'http://www.suda.edu.cn'
     # basic_url = 'http://www.suda.edu.cn'
     # table_count = 0
-    url_pool = set(('http://ac.suda.edu.cn',
-'http://aff.suda.edu.cn',
-'http://alumni.suda.edu.cn',
-'http://arch.suda.edu.cn',
-'http://archives.suda.edu.cn',
-'http://audit.suda.edu.cn',
-'http://bjwx.suda.edu.cn',
+    url_pool = set((
+ "http://tec.suda.edu.cn",
  
-'http://bsh.suda.edu.cn',
+"http://textile.suda.edu.cn",
  
-'http://bwc.suda.edu.cn',
+"http://tjxh.suda.edu.cn",
  
-'http://bwcx.suda.edu.cn',
+"http://twzsy.suda.edu.cn",
  
-'http://card.suda.edu.cn',
+"http://tyxy.suda.edu.cn",
  
-'http://career.suda.edu.cn',
+"http://tzb.suda.edu.cn",
  
-'http://cgpt.suda.edu.cn',
+"http://uninews.suda.edu.cn",
  
-'http://chemistry.suda.edu.cn',
+"http://welcome.suda.edu.cn",
  
-'http://cicrm.suda.edu.cn',
+"http://wg.suda.edu.cn",
  
-'http://cps.suda.edu.cn',
  
-'http://ctmi.suda.edu.cn',
+"http://wx.suda.edu.cn",
  
-'http://cusg.suda.edu.cn'
- ,
-'http://cwc.suda.edu.cn',
+"http://wxy.suda.edu.cn",
  
-'http://cxcyzx.suda.edu.cn',
+"http://xb.suda.edu.cn",
  
-'http://dangxiao.suda.edu.cn'
- ,
-'http://db.suda.edu.cn',
+"http://xcb.suda.edu.cn",
  
-'http://ddh.suda.edu.cn',
+"http://xdgx.suda.edu.cn",
  
-'http://disciplinfo.suda.edu.cn',
+"http://xiaoqing.suda.edu.cn",
  
-'http://dsj.suda.edu.cn',
+"http://xjj.suda.edu.cn",
  
-'http://dwshy.suda.edu.cn',
+"http://xk.suda.edu.cn",
  
-'http://dwzx.suda.edu.cn',
+"http://xlzx.suda.edu.cn",
  
-'http://dxpx.suda.edu.cn',
+"http://xsc.suda.edu.cn",
  
-'http://dxyqgl.suda.edu.cn',
+"http://xsh.suda.edu.cn",
  
-'http://dxyqglxt.suda.edu.cn',
+"http://yanhui.suda.edu.cn",
  
-'http://dzxx.suda.edu.cn',
+"http://yjs.suda.edu.cn",
  
-'http://eeac.suda.edu.cn',
+"http://youth.suda.edu.cn",
  
-'http://energy.suda.edu.cn',
+"http://ysxy.suda.edu.cn",
  
-'http://eng.suda.edu.cn'))
+"http://yxbfzb.suda.edu.cn",
+ 
+"http://zbzx.suda.edu.cn",
+ 
+"http://zcpt.gzc.suda.edu.cn",
+ 
+"http://zjc.suda.edu.cn",
+ 
+"http://zqsy.suda.edu.cn",
+ 
+"http://zsb.suda.edu.cn",
+ 
+"http://zzb.suda.edu.cn",
+ 
+))
     custom_settings = {'DOWNLOAD_DELAY': 1,  # 下载延迟 3s
                        'ITEM_PIPELINES': {
-                           'mySpider.pipelines.MyspiderPipeline3': 300
-                       }
+                           'mySpider.pipelines.MyspiderPipeline6': 300
+                       },
+                       'DOWNLOAD_TIMEOUT': 5
                        }
     def parse(self, response):
         # self.count = self.count+1

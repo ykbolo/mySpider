@@ -91,3 +91,36 @@ class MyspiderPipeline3(object):
 
     def close_spider(self, spider):
         self.f.close()
+class MyspiderPipeline4(object):
+    def __init__(self):
+        self.f = open("sudaFUrls.json", 'a', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        content = json.dumps(dict(item), ensure_ascii=False)+',\n'
+        self.f.write(content)
+        return item
+
+    def close_spider(self, spider):
+        self.f.close()
+class MyspiderPipeline5(object):
+    def __init__(self):
+        self.f = open("sudaMUrls.json", 'a', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        content = json.dumps(dict(item), ensure_ascii=False)+',\n'
+        self.f.write(content)
+        return item
+
+    def close_spider(self, spider):
+        self.f.close()
+class MyspiderPipeline6(object):
+    def __init__(self):
+        self.f = open("sudaTUrls.json", 'a', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        content = json.dumps(dict(item), ensure_ascii=False)+',\n'
+        self.f.write(content)
+        return item
+
+    def close_spider(self, spider):
+        self.f.close()

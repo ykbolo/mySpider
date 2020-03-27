@@ -1,318 +1,317 @@
-http://ac.suda.edu.cn
+""http://ac.suda.edu.cn","
  
-http://aff.suda.edu.cn
+""http://aff.suda.edu.cn","
 
-http://alumni.suda.edu.cn
+""http://alumni.suda.edu.cn","
  
-http://arch.suda.edu.cn
+"http://arch.suda.edu.cn",
  
-http://archives.suda.edu.cn
+"http://archives.suda.edu.cn",
  
-http://audit.suda.edu.cn
+"http://audit.suda.edu.cn",
  
-http://bjwx.suda.edu.cn
+"http://bjwx.suda.edu.cn",
  
-http://bsh.suda.edu.cn
+"http://bsh.suda.edu.cn",
  
-http://bwc.suda.edu.cn
+"http://bwc.suda.edu.cn",
  
-http://bwcx.suda.edu.cn
+"http://bwcx.suda.edu.cn",
  
-http://card.suda.edu.cn
+"http://card.suda.edu.cn",
  
-http://career.suda.edu.cn
+"http://career.suda.edu.cn",
  
-http://cgpt.suda.edu.cn
+"http://cgpt.suda.edu.cn",
  
-http://chemistry.suda.edu.cn
+"http://chemistry.suda.edu.cn",
  
-http://cicrm.suda.edu.cn
+"http://cicrm.suda.edu.cn",
  
-http://cps.suda.edu.cn
+"http://cps.suda.edu.cn",
  
-http://ctmi.suda.edu.cn
+"http://ctmi.suda.edu.cn",
  
-http://cusg.suda.edu.cn
+"http://cusg.suda.edu.cn",
  
-http://cwc.suda.edu.cn
+"http://cwc.suda.edu.cn",
  
-http://cxcyzx.suda.edu.cn
+"http://cxcyzx.suda.edu.cn",
  
-http://dangxiao.suda.edu.cn
+"http://dangxiao.suda.edu.cn",
  
-http://db.suda.edu.cn
+"http://db.suda.edu.cn",
  
-http://ddh.suda.edu.cn
+"http://ddh.suda.edu.cn",
  
-http://disciplinfo.suda.edu.cn
+"http://disciplinfo.suda.edu.cn",
  
-http://dsj.suda.edu.cn
+"http://dsj.suda.edu.cn",
  
-http://dwshy.suda.edu.cn
+"http://dwshy.suda.edu.cn",
  
-http://dwzx.suda.edu.cn
+"http://dwzx.suda.edu.cn",
  
-http://dxpx.suda.edu.cn
+"http://dxpx.suda.edu.cn",
  
-http://dxyqgl.suda.edu.cn
+"http://dxyqgl.suda.edu.cn",
  
-http://dxyqglxt.suda.edu.cn
+"http://dxyqglxt.suda.edu.cn",
  
-http://dzxx.suda.edu.cn
+"http://dzxx.suda.edu.cn",
  
-http://eeac.suda.edu.cn
+"http://eeac.suda.edu.cn",
  
-http://energy.suda.edu.cn
+"http://energy.suda.edu.cn",
  
-http://eng.suda.edu.cn
+"http://eng.suda.edu.cn",
  
-http://file.suda.edu.cn
+"http://file.suda.edu.cn",
  
-http://fineng.suda.edu.cn
+"http://fineng.suda.edu.cn",
  
-http://forensic.suda.edu.cn
+"http://forensic.suda.edu.cn",
  
-http://funsom.suda.edu.cn
+"http://funsom.suda.edu.cn",
  
-http://fxcs.suda.edu.cn
+"http://fxcs.suda.edu.cn",
  
-http://fyxy.suda.edu.cn
+"http://fyxy.suda.edu.cn",
  
-http://fzb.suda.edu.cn
+"http://fzb.suda.edu.cn",
  
-http://garden.suda.edu.cn
+"http://garden.suda.edu.cn",
  
-http://ggw.suda.edu.cn
+"http://ggw.suda.edu.cn",
  
-http://gh.suda.edu.cn
+"http://gh.suda.edu.cn",
  
-http://gkyjs.suda.edu.cn
+"http://gkyjs.suda.edu.cn",
  
-http://gwxy.suda.edu.cn
+"http://gwxy.suda.edu.cn",
  
-http://gysk.suda.edu.cn
+"http://gysk.suda.edu.cn",
  
-http://gzc.suda.edu.cn
+"http://gzc.suda.edu.cn",
  
-http://hlxy.suda.edu.cn
+"http://hlxy.suda.edu.cn",
  
-http://hospital-admin.suda.edu.cn
+"http://hospital-admin.suda.edu.cn",
  
-http://hqglc.suda.edu.cn
+"http://hqglc.suda.edu.cn",
  
-http://hris.suda.edu.cn
+"http://hris.suda.edu.cn",
  
-http://hysgl.suda.edu.cn
+"http://hysgl.suda.edu.cn",
  
-http://hzb.suda.edu.cn
+"http://hzb.suda.edu.cn",
  
-http://iai.suda.edu.cn
+"http://iai.suda.edu.cn",
  
-http://ibms.suda.edu.cn
+"http://ibms.suda.edu.cn",
  
-http://ics.suda.edu.cn
+"http://ics.suda.edu.cn",
  
-http://international.suda.edu.cn
+"http://international.suda.edu.cn",
  
-http://its.suda.edu.cn
+"http://its.suda.edu.cn",
  
-http://jdxy.suda.edu.cn
+"http://jdxy.suda.edu.cn",
  
-http://jfsx.suda.edu.cn
+"http://jfsx.suda.edu.cn",
  
-http://jgdgw.suda.edu.cn
+"http://jgdgw.suda.edu.cn",
  
-http://jjs.suda.edu.cn
+"http://jjs.suda.edu.cn",
  
-http://jsgzb.suda.edu.cn
+"http://jsgzb.suda.edu.cn",
  
-http://jsyb.suda.edu.cn
+"http://jsyb.suda.edu.cn",
  
-http://jsyd.suda.edu.cn
+"http://jsyd.suda.edu.cn",
  
-http://jtxy.suda.edu.cn
+"http://jtxy.suda.edu.cn",
  
-http://jwb.suda.edu.cn
+"http://jwb.suda.edu.cn",
  
-http://jwsy.suda.edu.cn
+"http://jwsy.suda.edu.cn",
  
-http://jxjy.suda.edu.cn
+"http://jxjy.suda.edu.cn",
  
-http://jxjylx.suda.edu.cn
+"http://jxjylx.suda.edu.cn",
  
-http://jxjyzs.suda.edu.cn
+"http://jxjyzs.suda.edu.cn",
  
-http://jysw.suda.edu.cn
+"http://jysw.suda.edu.cn",
  
-http://jyxy.suda.edu.cn
+"http://jyxy.suda.edu.cn",
  
-http://labcenter.suda.edu.cn
+"http://labcenter.suda.edu.cn",
  
-http://laowo.suda.edu.cn
+"http://laowo.suda.edu.cn",
  
-http://law.suda.edu.cn
+"http://law.suda.edu.cn",
  
-http://library.suda.edu.cn
+"http://library.suda.edu.cn",
  
-http://lst.suda.edu.cn
+"http://lst.suda.edu.cn",
  
-http://ltc.suda.edu.cn
+"http://ltc.suda.edu.cn",
  
-http://lxyz.suda.edu.cn
+"http://lxyz.suda.edu.cn",
  
-http://mail.suda.edu.cn
+"http://mail.suda.edu.cn",
  
-http://marathon.suda.edu.cn
+"http://marathon.suda.edu.cn",
  
-http://marxism.suda.edu.cn
+"http://marxism.suda.edu.cn",
  
-http://math.suda.edu.cn
+"http://math.suda.edu.cn",
  
-http://medical.suda.edu.cn
+"http://medical.suda.edu.cn",
  
-http://museum.suda.edu.cn
+"http://museum.suda.edu.cn",
  
-http://music.suda.edu.cn
+"http://music.suda.edu.cn",
  
-http://my.suda.edu.cn
+"http://my.suda.edu.cn",
  
-http://mycs.suda.edu.cn
+"http://mycs.suda.edu.cn",
  
-http://nano.suda.edu.cn
+"http://nano.suda.edu.cn",
  
-http://neuroscience.suda.edu.cn
+"http://neuroscience.suda.edu.cn",
  
-http://oa.suda.edu.cn
+"http://oa.suda.edu.cn",
  
-http://oese.suda.edu.cn
+"http://oese.suda.edu.cn",
  
-http://oversea.suda.edu.cn
+"http://oversea.suda.edu.cn",
  
-http://pac.suda.edu.cn
+"http://pac.suda.edu.cn",
  
-http://pharm.suda.edu.cn
+"http://pharm.suda.edu.cn",
  
-http://physics.suda.edu.cn
+"http://physics.suda.edu.cn",
  
-http://qzdgw.suda.edu.cn
+"http://qzdgw.suda.edu.cn",
  
-http://report.suda.edu.cn
+"http://report.suda.edu.cn",
  
-http://rsc.suda.edu.cn
+"http://rsc.suda.edu.cn",
  
-http://rules.suda.edu.cn
+"http://rules.suda.edu.cn",
  
-http://rurc.suda.edu.cn
+"http://rurc.suda.edu.cn",
  
-http://sbc.suda.edu.cn
+"http://sbc.suda.edu.cn",
  
-http://sc.suda.edu.cn
+"http://sc.suda.edu.cn",
  
-http://scit.suda.edu.cn
+"http://scit.suda.edu.cn",
  
-http://scst.suda.edu.cn
+"http://scst.suda.edu.cn",
  
-http://sdbn.suda.edu.cn
+"http://sdbn.suda.edu.cn",
  
-http://sdgcxl.suda.edu.cn
+"http://sdgcxl.suda.edu.cn",
  
-http://sdh.suda.edu.cn
+"http://sdh.suda.edu.cn",
  
-http://sdkjy.suda.edu.cn
+"http://sdkjy.suda.edu.cn",
  
-http://sdss.suda.edu.cn
+"http://sdss.suda.edu.cn",
  
-http://sdttc.suda.edu.cn
+"http://sdttc.suda.edu.cn",
  
-http://sdxb.suda.edu.cn
+"http://sdxb.suda.edu.cn",
  
-http://sdzy.suda.edu.cn
+"http://sdzy.suda.edu.cn",
  
-http://sfl.suda.edu.cn
+"http://sfl.suda.edu.cn",
  
-http://shpg.suda.edu.cn
+"http://shpg.suda.edu.cn",
  
-http://shxy.suda.edu.cn
+"http://shxy.suda.edu.cn",
  
-http://skc.suda.edu.cn
+"http://skc.suda.edu.cn",
  
-http://snfz.suda.edu.cn
+"http://snfz.suda.edu.cn",
  
-http://ssis.suda.edu.cn
+"http://ssis.suda.edu.cn",
  
-http://sudabao.suda.edu.cn
+"http://sudabao.suda.edu.cn",
  
-http://sutt.suda.edu.cn
+"http://sutt.suda.edu.cn",
  
-http://sxy.suda.edu.cn
+"http://sxy.suda.edu.cn",
  
-http://sylc.suda.edu.cn
+"http://sylc.suda.edu.cn",
  
-http://szdxrwb.suda.edu.cn
+"http://szdxrwb.suda.edu.cn",
  
-http://szdxyy.suda.edu.cn
+"http://szdxyy.suda.edu.cn",
  
-http://tec.suda.edu.cn
+"http://tec.suda.edu.cn",
  
-http://textile.suda.edu.cn
+"http://textile.suda.edu.cn",
  
-http://tjxh.suda.edu.cn
+"http://tjxh.suda.edu.cn",
  
-http://twzsy.suda.edu.cn
+"http://twzsy.suda.edu.cn",
  
-http://tyxy.suda.edu.cn
+"http://tyxy.suda.edu.cn",
  
-http://tzb.suda.edu.cn
+"http://tzb.suda.edu.cn",
  
-http://uninews.suda.edu.cn
+"http://uninews.suda.edu.cn",
  
-http://welcome.suda.edu.cn
+"http://welcome.suda.edu.cn",
  
-http://wg.suda.edu.cn
+"http://wg.suda.edu.cn",
  
-http://www.suda.edu.cn
  
-http://wx.suda.edu.cn
+"http://wx.suda.edu.cn",
  
-http://wxy.suda.edu.cn
+"http://wxy.suda.edu.cn",
  
-http://xb.suda.edu.cn
+"http://xb.suda.edu.cn",
  
-http://xcb.suda.edu.cn
+"http://xcb.suda.edu.cn",
  
-http://xdgx.suda.edu.cn
+"http://xdgx.suda.edu.cn",
  
-http://xiaoqing.suda.edu.cn
+"http://xiaoqing.suda.edu.cn",
  
-http://xjj.suda.edu.cn
+"http://xjj.suda.edu.cn",
  
-http://xk.suda.edu.cn
+"http://xk.suda.edu.cn",
  
-http://xlzx.suda.edu.cn
+"http://xlzx.suda.edu.cn",
  
-http://xsc.suda.edu.cn
+"http://xsc.suda.edu.cn",
  
-http://xsh.suda.edu.cn
+"http://xsh.suda.edu.cn",
  
-http://yanhui.suda.edu.cn
+"http://yanhui.suda.edu.cn",
  
-http://yjs.suda.edu.cn
+"http://yjs.suda.edu.cn",
  
-http://youth.suda.edu.cn
+"http://youth.suda.edu.cn",
  
-http://ysxy.suda.edu.cn
+"http://ysxy.suda.edu.cn",
  
-http://yxbfzb.suda.edu.cn
+"http://yxbfzb.suda.edu.cn",
  
-http://zbzx.suda.edu.cn
+"http://zbzx.suda.edu.cn",
  
-http://zcpt.gzc.suda.edu.cn
+"http://zcpt.gzc.suda.edu.cn",
  
-http://zjc.suda.edu.cn
+"http://zjc.suda.edu.cn",
  
-http://zqsy.suda.edu.cn
+"http://zqsy.suda.edu.cn",
  
-http://zsb.suda.edu.cn
+"http://zsb.suda.edu.cn",
  
-http://zzb.suda.edu.cn
+"http://zzb.suda.edu.cn",
  
