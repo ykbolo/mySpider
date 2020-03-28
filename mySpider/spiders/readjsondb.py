@@ -26,10 +26,12 @@ class ReadjsondbSpider(scrapy.Spider):
         yield scrapy.FormRequest(url=self.url_pool[0],callback=self.parse2)
     def parse2(self, response):
         self.url_pool.pop(0)
+        print(response.status)
+        print(response.request.url.strip('*/'))
         print("###: url_pool %d  ###" % (len(self.url_pool)))
         self.count = self.count+1
         randomdelay=random.randint(0,5)
-        time.sleep(randomdelay)
+        time.sleep(1)
         print("%d ### random delay: %s s ###" % (self.count,randomdelay))
         item = txt2jsonItem()
         tree = html.fromstring(response.body)
@@ -72,7 +74,7 @@ class ReadjsondbSpider(scrapy.Spider):
         # self.writeFile(self.index,content)
 
         for target in self.url_pool:
-            yield scrapy.Request(target,self.parse2,dont_filter=True)
+          yield scrapy.Request(target,self.parse2,dont_filter=False)
     # 读取数据库中的url
     def readFromDB(self):
       db = pymysql.connect(

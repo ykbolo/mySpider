@@ -239,3 +239,5 @@ class Logger(object):
 
 sys.stdout = Logger('a.log', sys.stdout)
 sys.stderr = Logger('a.log_file', sys.stderr)
+
+

@@ -124,15 +124,17 @@ class readjsondbPipeline(object):
         
         content = json.dumps(dict(item), ensure_ascii=False)
         requireJson = pymysql.escape_string(content)  
-        sql = "INSERT INTO content0328(json) VALUE ('%s')" % (requireJson)
+        sql = "INSERT INTO content0329(json) VALUE ('%s')" % (requireJson)
         # print(content)
         try:
             self.cursor.execute(sql)
             self.db.commit()
+            return item
         except pymysql.Warning as e:
+            return ''
             pass
-            
-        return item
+        
+        
         #   self.index = self.index+1
 
     def close_spider(self, spider):
