@@ -6,7 +6,7 @@ db = pymysql.connect(
 cursor = db.cursor()
 
 
-f = open("sudaNews2.txt", 'r', encoding='utf-8')
+f = open("sudaMUrls.txt", 'r', encoding='utf-8')
 line = f.readline()
 count = 0
 while line:
@@ -16,7 +16,7 @@ while line:
         load = json.loads(line)
         if 'doc' not in load['url']:
           # print(load['father'],load['url'])
-          sql = "INSERT IGNORE INTO www_suda_edu_cn(url,father) VALUE ('%s','%s')" % (
+          sql = "INSERT IGNORE INTO M_T(url,father) VALUE ('%s','%s')" % (
               load['url'],load['father'])
           cursor.execute(sql)
           count = count+1

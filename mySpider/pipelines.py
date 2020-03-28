@@ -42,7 +42,7 @@ class MyspiderPipeline(object):
 
 
 class MyspiderPipeline2(object):
-
+    
     def __init__(self):
         self.db = pymysql.connect(
             "localhost", "root", "password", "spiderurl")
@@ -113,3 +113,28 @@ class txt2jsonPipeline(object):
             # content = json.dumps(dict(),ensure_ascii=False)
             f.write(content)
             f.close()
+class readjsondbPipeline(object):
+    def __init__(self):
+        self.db = pymysql.connect(
+            "localhost", "root", "password", "spiderurl",charset="utf8")
+        self.cursor = self.db.cursor()
+        self.count = 0
+    def process_item(self, item, spider):
+        # print(dict(item))
+        
+        content = json.dumps(dict(item), ensure_ascii=False)
+        requireJson = pymysql.escape_string(content)  
+        sql = "INSERT INTO content0328(json) VALUE ('%s')" % (requireJson)
+        # print(content)
+        try:
+            self.cursor.execute(sql)
+            self.db.commit()
+        except pymysql.Warning as e:
+            pass
+            
+        return item
+        #   self.index = self.index+1
+
+    def close_spider(self, spider):
+        self.db.close()
+    

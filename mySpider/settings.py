@@ -20,6 +20,7 @@ NEWSPIDER_MODULE = 'mySpider.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)'
 
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
@@ -41,7 +42,8 @@ CONCURRENT_REQUESTS = 32  # 并发量
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 2  # 下载延迟 3s
+# DOWNLOAD_DELAY = 2  # 下载延迟 3s
+RANDOM_DELAY = 5
 # The download delay setting will honor only one of:
 CONCURRENT_REQUESTS_PER_DOMAIN = 50
 CONCURRENT_REQUESTS_PER_IP =50
@@ -67,9 +69,12 @@ COOKIES_ENABLED = False
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
 #    'mySpider.middlewares.MyspiderDownloaderMiddleware': 543,
-# }
+#    'mySpider.middlewares.RandomDelayMiddleware': 100,
+#    'mySpider.middlewares.RandomUserAgent': 100,
+#    'mySpider.middlewares.ProxyMiddlleWare':100
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -93,7 +98,7 @@ ITEM_PIPELINES = {
 #AUTOTHROTTLE_MAX_DELAY = 60
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server
-#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
+AUTOTHROTTLE_TARGET_CONCURRENCY = 32
 # Enable showing throttling stats for every response received:
 #AUTOTHROTTLE_DEBUG = False
 

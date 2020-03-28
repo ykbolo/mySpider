@@ -8,6 +8,7 @@
 from scrapy import signals
 import random
 # 第三方框架，可以产生各种headers
+import time,random,logging
 from fake_useragent import UserAgent
 
 class MyspiderSpiderMiddleware(object):
@@ -128,7 +129,7 @@ class ProxyMiddlleWare(object):
         request.meta['proxy']="http://"+proxy
     #这个方法是从文档中读取id地址
     def get_Random_Proxy(self):
-        with open(r"C:\Users\python\ok_ip.txt",'r') as file:
+        with open("D:\yangkang\mySpider\mySpider\ok_ip.txt",'r') as file:
             text=file.readlines()
         proxy = random.choice(text).strip()
         return proxy
@@ -140,4 +141,23 @@ class ProxyMiddlleWare(object):
             request.meta['proxy'] = "http://" + proxy
             return request
         return response
+
+class RandomDelayMiddleware(object):
+    def __init__(self, delay):
+        self.delay = 5
+        self.count=0
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        delay = crawler.spider.settings.get("RANDOM_DELAY", 10)
+        if not isinstance(delay, int):
+            raise ValueError("RANDOM_DELAY need a int")
+        return cls(delay)
+
+    def process_request(self, request, spider):
+        self.count=self.count+1
+        delay = random.randint(0, self.delay)
+        logging.debug("### random delay: %s s ###" % delay)
+        print("%d ### random delay: %s s ###" % (self.count,delay))
+        time.sleep(delay)
 
