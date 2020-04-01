@@ -10,7 +10,8 @@ import random
 import time
 
 class SudaMainSpider(scrapy.Spider):
-    name = 'sudaF111'
+    name = 'sudaF'
+    parseCount=0
     allowed_domains = ["file.suda.edu.cn",
  
 "fineng.suda.edu.cn",
@@ -201,16 +202,31 @@ class SudaMainSpider(scrapy.Spider):
 "http://ltc.suda.edu.cn",
  
 "http://lxyz.suda.edu.cn"))
-    custom_settings = {
+    custom_settings = {'DOWNLOAD_DELAY': 1,  # 下载延迟 3s
                        'ITEM_PIPELINES': {
                            'mySpider.pipelines.MyspiderPipeline4': 300
                        }
                        }
-    def parse(self, response):
+    
+    def parse(self,response):
+        self.parseCount = self.parseCount+1
+        print("### %d 次循环 ###" % self.parseCount)
+        print("### url_池大小 %d ###" % len(self.url_pool))
+        
+        url_pool_copy = copy.deepcopy(self.url_pool)
+        for target in url_pool_copy:
+            yield scrapy.FormRequest(target,callback=self.parsePage)
+        print("### %d 次循环 ###" % self.parseCount)
+        print("### url_池大小 %d ###" % len(self.url_pool))
+        yield scrapy.Request('http://www.suda.edu.cn', self.parse, dont_filter=True)
+    def parsePage(self, response):
         # self.count = self.count+1
         #print('这是第', self.count, '个页面')
         print('当前爬取页面'+response.request.url.strip('*/'))
-        print('当前集合大小', len(self.url_pool))
+        randomdelay=random.randint(0,4)
+        time.sleep(randomdelay)
+        print("### random delay: %s s ###" % (randomdelay))
+        # print('当前集合大小', len(self.url_pool))
         titles = response.xpath('//a/@href').extract()
 
         basic_url = response.request.url.strip('*/')
@@ -247,15 +263,15 @@ class SudaMainSpider(scrapy.Spider):
                 # yield item
         # url_list = self.getDistinctUrls()
         # print(url_list)
-        url_pool_copy = copy.deepcopy(self.url_pool)
-        # url_pool_copy = list(self.url_pool)
+        # url_pool_copy = copy.deepcopy(self.url_pool)
+        # # url_pool_copy = list(self.url_pool)
 
-        for next_url in url_pool_copy:
-            # print('这是第', index, '个元素')
-            if 'http://' in next_url or 'https://' in next_url:
-                yield scrapy.Request(next_url, self.parse, dont_filter=False)
-            else:
-                yield scrapy.Request('http://'+next_url, self.parse, dont_filter=False)
+        # for next_url in url_pool_copy:
+        #     # print('这是第', index, '个元素')
+        #     if 'http://' in next_url or 'https://' in next_url:
+        #         yield scrapy.Request(next_url, self.parse, dont_filter=False)
+        #     else:
+        #         yield scrapy.Request('http://'+next_url, self.parse, dont_filter=False)
 
     def getDistinctUrls(self):
         url_list = []

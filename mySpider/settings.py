@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'mySpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)'
+USER_AGENT = 'Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)'
 
 
 # Obey robots.txt rules
@@ -28,7 +28,8 @@ ROBOTSTXT_OBEY = False
 LOG_LEVEL = "WARN"
 # DEPTH_LIMIT = 10
 # 设置下载超时
-# DOWNLOAD_TIMEOUT = 10
+DOWNLOAD_TIMEOUT = 10
+
 # 禁止重试
 RETRY_ENABLED = False
 # 先进先出，广度优先

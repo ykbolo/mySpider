@@ -6,10 +6,11 @@ import pymysql
 import copy
 from urllib.request import urlparse
 from urllib.parse import urljoin
-
+import random
+import time
 
 class SudaMainSpider(scrapy.Spider):
-    name = 'sudaM'
+    name = 'sudaM222'
     allowed_domains = [
  
 "marxism.suda.edu.cn",
@@ -192,7 +193,7 @@ class SudaMainSpider(scrapy.Spider):
 "http://szdxrwb.suda.edu.cn",
  
 "http://szdxyy.suda.edu.cn"))
-    custom_settings = {'DOWNLOAD_DELAY': 1,  # 下载延迟 3s
+    custom_settings = {
                        'ITEM_PIPELINES': {
                            'mySpider.pipelines.MyspiderPipeline5': 300
                        }

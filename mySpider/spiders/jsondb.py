@@ -22,7 +22,7 @@ class JsondbSpider(scrapy.Spider):
     }
     # db=
     def parse(self,response):
-        self.url_pool=self.readFromDB()
+        self.url_pool=self.readFromDB()[81476:]
         for target in self.url_pool:
           yield scrapy.FormRequest(target,callback=self.getInfo)
     def getInfo(self, response):
@@ -32,7 +32,7 @@ class JsondbSpider(scrapy.Spider):
         print("###: url_pool %d  ###" % (len(self.url_pool)))
         self.count = self.count+1
         randomdelay=random.randint(0,4)
-        time.sleep(randomdelay)
+        time.sleep(1)
         print("%d ### random delay: %s s ###" % (self.count,randomdelay))
         item = txt2jsonItem()
         tree = html.fromstring(response.body)

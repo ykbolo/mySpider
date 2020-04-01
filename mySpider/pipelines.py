@@ -82,16 +82,51 @@ class MyspiderPipeline2(object):
 
 class MyspiderPipeline3(object):
     def __init__(self):
-        self.f = open("sudaAUrls.json", 'a', encoding='utf-8')
+        self.f = open("sudaA.txt", 'a', encoding='utf-8')
 
     def process_item(self, item, spider):
-        content = json.dumps(dict(item), ensure_ascii=False)+',\n'
+        content = json.dumps(dict(item), ensure_ascii=False)+'\n'
         self.f.write(content)
         return item
 
     def close_spider(self, spider):
         self.f.close()
 
+class MyspiderPipeline4(object):
+    def __init__(self):
+        self.f = open("sudaF.txt", 'a', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        content = json.dumps(dict(item), ensure_ascii=False)+'\n'
+        self.f.write(content)
+        return item
+
+    def close_spider(self, spider):
+        self.f.close()
+
+class MyspiderPipeline5(object):
+    def __init__(self):
+        self.f = open("sudaM.txt", 'a', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        content = json.dumps(dict(item), ensure_ascii=False)+'\n'
+        self.f.write(content)
+        return item
+
+    def close_spider(self, spider):
+        self.f.close()
+
+class MyspiderPipeline6(object):
+    def __init__(self):
+        self.f = open("sudaT.txt", 'a', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        content = json.dumps(dict(item), ensure_ascii=False)+'\n'
+        self.f.write(content)
+        return item
+
+    def close_spider(self, spider):
+        self.f.close()
 
 
 class txt2jsonPipeline(object):
