@@ -1,0 +1,3 @@
+# 存放执行脚本
+
+scrapy crawl sudaurls -s JOBDIR=jobs/001

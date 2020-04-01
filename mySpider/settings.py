@@ -18,13 +18,24 @@ NEWSPIDER_MODULE = 'mySpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)'
+
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
 #
-# LOG_LEVEL = "WARN"
+LOG_LEVEL = "WARN"
+# DEPTH_LIMIT = 10
+# 设置下载超时
+DOWNLOAD_TIMEOUT = 10
+
+# 禁止重试
+RETRY_ENABLED = False
+# 先进先出，广度优先
+# DEPTH_PRIORITY = 1
+# SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue'
+# SCHEDULER_MEMORY_QUEUE = 'scrapy.squeues.FifoMemoryQueue'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32  # 并发量
@@ -32,13 +43,14 @@ CONCURRENT_REQUESTS = 32  # 并发量
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3  # 下载延迟 3s
+# DOWNLOAD_DELAY = 2  # 下载延迟 3s
+RANDOM_DELAY = 5
 # The download delay setting will honor only one of:
-#CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 16
+CONCURRENT_REQUESTS_PER_DOMAIN = 50
+CONCURRENT_REQUESTS_PER_IP =50
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -58,9 +70,12 @@ DOWNLOAD_DELAY = 3  # 下载延迟 3s
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
 #    'mySpider.middlewares.MyspiderDownloaderMiddleware': 543,
-# }
+#    'mySpider.middlewares.RandomDelayMiddleware': 100,
+#    'mySpider.middlewares.RandomUserAgent': 100,
+#    'mySpider.middlewares.ProxyMiddlleWare':100
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -71,7 +86,8 @@ DOWNLOAD_DELAY = 3  # 下载延迟 3s
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'mySpider.pipelines.MyspiderPipeline': 300,
+    # 'mySpider.pipelines.MyspiderPipeline': 300,
+    # 'mySpider.pipelines.MyspiderPipeline2': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -83,7 +99,7 @@ ITEM_PIPELINES = {
 #AUTOTHROTTLE_MAX_DELAY = 60
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server
-#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
+AUTOTHROTTLE_TARGET_CONCURRENCY = 32
 # Enable showing throttling stats for every response received:
 #AUTOTHROTTLE_DEBUG = False
 
@@ -92,5 +108,9 @@ ITEM_PIPELINES = {
 #HTTPCACHE_ENABLED = True
 #HTTPCACHE_EXPIRATION_SECS = 0
 #HTTPCACHE_DIR = 'httpcache'
-#HTTPCACHE_IGNORE_HTTP_CODES = []
+# HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+HTTPERROR_ALLOW_ALL = False
+HTTPERROR_ALLOWED_CODES = []
