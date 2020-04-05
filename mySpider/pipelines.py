@@ -159,7 +159,7 @@ class readjsondbPipeline(object):
         
         content = json.dumps(dict(item), ensure_ascii=False)
         requireJson = pymysql.escape_string(content)  
-        sql = "INSERT INTO content0329(json) VALUE ('%s')" % (requireJson)
+        sql = "INSERT INTO contentsuda(json) VALUE ('%s')" % (requireJson)
         # print(content)
         try:
             self.cursor.execute(sql)
